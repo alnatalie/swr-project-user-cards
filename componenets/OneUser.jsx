@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import toast from 'react-hot-toast';
 
 const OneUser = ({ user, handleClickDeleteUser, setUsers}) => {
-const 
-    url = 'http://localhost:3000/users',
-    [isEdit, setIsEdit] = useState(false),
-    [editProfileData, setEditProfileData] = useState(user);
+const url = 'http://localhost:3000/users';
+const [isEdit, setIsEdit] = useState(false);
+const [editProfileData, setEditProfileData] = useState(user);
+
 
   const handleClickEditUser = async (e)=>{
     try{
@@ -18,21 +19,30 @@ const
         }).then(res=>res.json())
         .then(res=>setUsers((prevState)=>prevState.map(element=>{
             if(res.id === element.id){
-                return res;
+              
+              return res;
+                
             } 
             else{
                 return element;
             }
+          
+            
                 
         })));
         setIsEdit(false);
+        toast.success('Saved!');
+        
+        
 
     }
     catch(e){
+      toast.error("This didn't work.")
       console.error(e);
 
     }
   };
+  
 
   return (
     <>
