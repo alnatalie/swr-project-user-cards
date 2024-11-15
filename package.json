@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "server": "npx json-server db.json",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -12,6 +13,8 @@
     "json-server": "^1.0.0-beta.3",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-hot-toast": "^2.4.1",
+    "swr": "^2.2.5"
   }
 }
